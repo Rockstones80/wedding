@@ -43,10 +43,8 @@ export function Hero() {
           <div className="relative flex min-h-svh flex-col items-center px-6 pt-[10svh] text-center">
             <motion.p
               className={`font-script text-white text-4xl ${textShadow}`}
-              initial={{ opacity: 0, y: -18, filter: "blur(6px)" }}
-              animate={
-                open ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined
-              }
+              initial={{ opacity: 0, y: -18 }}
+              animate={open ? { opacity: 1, y: 0 } : undefined}
               transition={{ duration: 1, ease: EASE, delay: 0.55 }}
             >
               Wedding Day
@@ -67,10 +65,8 @@ export function Hero() {
             >
               <motion.span
                 className="block text-6xl"
-                initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-                animate={
-                  open ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined
-                }
+                initial={{ opacity: 0, y: 30 }}
+                animate={open ? { opacity: 1, y: 0 } : undefined}
                 transition={{ duration: 1.05, ease: EASE, delay: 0.9 }}
               >
                 {site.couple.nameA}
@@ -85,10 +81,8 @@ export function Hero() {
               </motion.span>
               <motion.span
                 className="block text-5xl sm:text-6xl"
-                initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-                animate={
-                  open ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined
-                }
+                initial={{ opacity: 0, y: 30 }}
+                animate={open ? { opacity: 1, y: 0 } : undefined}
                 transition={{ duration: 1.05, ease: EASE, delay: 1.02 }}
               >
                 {site.couple.nameB}

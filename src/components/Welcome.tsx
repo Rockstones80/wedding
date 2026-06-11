@@ -1,12 +1,27 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import EnvelopePreloader from "./EnvelopePreloader";
 import { site } from "@/lib/content";
 import { INVITATION_OPENED } from "@/lib/events";
 
 export function Welcome() {
+  // The envelope preloader is a mobile-only experience; desktop goes straight
+  // to the page.
+  const [showEnvelope] = useState(
+    () => window.matchMedia("(max-width: 639px)").matches,
+  );
   const [opened, setOpened] = useState(false);
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (showEnvelope) return;
+    // Small delay so section listeners are attached before the reveal fires.
+    const id = window.setTimeout(() => {
+      setOpened(true);
+      window.dispatchEvent(new Event(INVITATION_OPENED));
+    }, 80);
+    return () => window.clearTimeout(id);
+  }, [showEnvelope]);
 
   function handleOpen() {
     setOpened(true);
@@ -38,7 +53,7 @@ export function Welcome() {
         <audio ref={audioRef} src={site.musicSrc} loop preload="auto" />
       )}
 
-      <EnvelopePreloader onOpen={handleOpen} />
+      {showEnvelope && <EnvelopePreloader onOpen={handleOpen} />}
 
       {site.musicSrc && opened && (
         <button

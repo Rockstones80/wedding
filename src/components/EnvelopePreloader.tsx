@@ -107,72 +107,28 @@ export default function EnvelopePreloader({
               <filter id="fTop" x="-20%" y="-20%" width="140%" height="160%">
                 <feDropShadow
                   dx="0"
-                  dy="10"
-                  stdDeviation="10"
+                  dy="8"
+                  stdDeviation="6"
                   floodColor="#2a000d"
-                  floodOpacity="0.38"
+                  floodOpacity="0.35"
                 />
-                <feTurbulence
-                  type="fractalNoise"
-                  baseFrequency="0.9"
-                  numOctaves="1"
-                  result="n"
-                />
-                <feColorMatrix
-                  in="n"
-                  type="matrix"
-                  values="0 0 0 0 .42  0 0 0 0 .33  0 0 0 0 .27  0 0 0 .05 0"
-                  result="tint"
-                />
-                <feComposite
-                  in="tint"
-                  in2="SourceAlpha"
-                  operator="in"
-                  result="grain"
-                />
-                <feMerge>
-                  <feMergeNode in="SourceGraphic" />
-                  <feMergeNode in="grain" />
-                </feMerge>
               </filter>
               <filter id="fSide" x="-20%" y="-20%" width="140%" height="140%">
                 <feDropShadow
                   dx="0"
-                  dy="5"
-                  stdDeviation="7"
+                  dy="4"
+                  stdDeviation="4"
                   floodColor="#2a000d"
-                  floodOpacity="0.25"
+                  floodOpacity="0.22"
                 />
-                <feTurbulence
-                  type="fractalNoise"
-                  baseFrequency="0.9"
-                  numOctaves="1"
-                  result="n"
-                />
-                <feColorMatrix
-                  in="n"
-                  type="matrix"
-                  values="0 0 0 0 .42  0 0 0 0 .33  0 0 0 0 .27  0 0 0 .05 0"
-                  result="tint"
-                />
-                <feComposite
-                  in="tint"
-                  in2="SourceAlpha"
-                  operator="in"
-                  result="grain"
-                />
-                <feMerge>
-                  <feMergeNode in="SourceGraphic" />
-                  <feMergeNode in="grain" />
-                </feMerge>
               </filter>
               <filter id="fSeal" x="-40%" y="-40%" width="180%" height="180%">
                 <feDropShadow
                   dx="0"
-                  dy="8"
-                  stdDeviation="9"
+                  dy="6"
+                  stdDeviation="6"
                   floodColor="#1c0008"
-                  floodOpacity="0.5"
+                  floodOpacity="0.45"
                 />
               </filter>
             </defs>
