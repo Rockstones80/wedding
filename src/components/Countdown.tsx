@@ -60,7 +60,7 @@ export function Countdown({ targetISO }: { targetISO: string }) {
           <div key={c.label} className="flex items-start">
             {i > 0 && (
               <motion.span
-                className="px-2 pt-1 font-serif text-4xl text-gold/70 sm:px-3 sm:text-5xl"
+                className="px-2 pt-1 font-serif text-4xl text-gray-800 sm:px-3 sm:text-6xl"
                 aria-hidden="true"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -84,7 +84,7 @@ export function Countdown({ targetISO }: { targetISO: string }) {
                     : String(c.value).padStart(2, "0")
                 }
               />
-              <div className="mt-2 font-serif text-xs uppercase tracking-[0.25em] text-ink/70 sm:text-sm">
+              <div className="mt-2 font-serif text-xs uppercase font-extrabold text-gray-800 sm:text-lg">
                 {c.label}
               </div>
             </motion.div>

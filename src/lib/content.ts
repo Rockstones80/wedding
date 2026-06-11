@@ -11,8 +11,8 @@ export const site = {
   },
 
   // Ceremony start — drives the countdown and calendar links.
-  dateISO: "2026-09-19T15:00:00+01:00",
-  dateDisplay: "19 . 09 . 2026",
+  dateISO: "2026-09-19T14:00:00+01:00",
+  dateDisplay: "19.09.26",
   // Spelled-out date.
   dateLong: "19th September 2026",
 
@@ -24,8 +24,8 @@ export const site = {
   letter: {
     heading: "Dear Friends and Family,",
     paragraphs: [
-      "As we prepare to say “I do,” our hearts are full of gratitude for the people who have shaped our lives and that means you.",
-      "It would be our honor to have you beside us as we begin this new chapter together.",
+      "As we get ready to say “I do,” we feel grateful for the wonderful people in our lives.",
+      "Your support means the world to us, and we would be honored to have you with us as we begin our life together.",
     ],
   },
 
@@ -60,9 +60,10 @@ export const site = {
   ],
 
   venue: {
-    name: "The Orchard Hall",
-    addressLines: ["12 Rosewood Avenue", "Garden City"],
-    mapsQuery: "The Orchard Hall, 12 Rosewood Avenue, Garden City",
+    name: "Devonshire",
+    addressLines: ["ADDRESS: 293-297 Edge Ln, Fairfield", "Liverpool L7 9LD"],
+    mapsQuery: "Devonshire, 293-297 Edge Ln, Fairfield, Liverpool L7 9LD",
+    photo: "/location.jpg" as string | null,
   },
 
   dressCode: {
@@ -73,25 +74,28 @@ export const site = {
       { hex: "#3a2b22", name: "Espresso" },
     ],
     gentlemen:
-      "Well-tailored suits in soft neutrals or deep tones, with classic dress shoes.",
+      "African traditional wear or a tailored suit with smart shoes",
     ladies:
-      "Formal dresses in elegant, polished styles — jewel tones are most welcome.",
+      "African traditional wear or a elegant formal dress with heel.",
     // Drop the photos into /public with these names (like hero2.jpg).
     photoGentlemen: "/dress-gentlemen.jpg" as string | null,
     photoLadies: "/dress-ladies.jpg" as string | null,
   },
 
-  details: {
-    contactName: "Ada",
-    contactPhone: "+000 0000 000 000",
-    gifts:
-      "Your presence is the greatest gift of all. Should you wish to honor us further, a contribution toward our new beginning would be received with gratitude.",
+
+  // Shown where the schedule used to be.
+  guestNote: {
+    heading: "Kindly Note",
+    paragraphs: [
+      "We are delighted to celebrate our special day with our closest family and friends. Please note that this is an invitation-only event.",
+      "While we have chosen to make our celebration adults-only, children of immediate family members will be in attendance.",
+    ],
   },
 
   story: {
     paragraphs: [
-      "We met on an ordinary day that turned out to be anything but. What began as easy conversation grew into friendship, and slowly, beautifully, became us.",
-      "Countless memories and one unforgettable proposal later — here we are, ready to begin forever.",
+      "Our story began with a simple online introduction, but from the very first conversation, we knew there was something special between us. What started as messages and laughter quickly grew into a beautiful friendship, and before long, we became inseparable. Since then, our days have been filled with love, happiness, and countless laughs.",
+      "Together, we have created a life full of wonderful memories, and we cannot wait to begin our next chapter as husband and wife..",
     ],
   },
 

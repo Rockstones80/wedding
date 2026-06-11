@@ -42,7 +42,7 @@ export function Hero() {
 
           <div className="relative flex min-h-svh flex-col items-center px-6 pt-[10svh] text-center">
             <motion.p
-              className={`font-script text-3xl text-white sm:text-4xl ${textShadow}`}
+              className={`font-script text-white text-4xl ${textShadow}`}
               initial={{ opacity: 0, y: -18, filter: "blur(6px)" }}
               animate={
                 open ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined
@@ -52,7 +52,7 @@ export function Hero() {
               Wedding Day
             </motion.p>
             <motion.p
-              className={`mt-2 font-serif text-base tracking-[0.3em] text-white/90 ${textShadow}`}
+              className={`mt-2 font-serif text-xl text-white font-bold ${textShadow}`}
               initial={{ opacity: 0, letterSpacing: "0.6em" }}
               animate={
                 open ? { opacity: 1, letterSpacing: "0.3em" } : undefined
@@ -63,10 +63,10 @@ export function Hero() {
             </motion.p>
 
             <h1
-              className={`mt-[15svh] font-script leading-[0.95] text-white ${textShadow} font-medium`}
+              className={`mt-[30svh] font-script leading-[0.95] text-white ${textShadow} font-medium`}
             >
               <motion.span
-                className="block text-5xl sm:text-6xl"
+                className="block text-6xl"
                 initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
                 animate={
                   open ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined
@@ -97,7 +97,7 @@ export function Hero() {
           </div>
         </div>
 
-        {site.heroFloral && (
+        {/* {site.heroFloral && (
           <motion.div
             aria-hidden="true"
             className="pointer-events-none absolute bottom-0 left-1/2 z-10 w-[min(44rem,120vw)]"
@@ -114,7 +114,7 @@ export function Hero() {
               className="h-auto w-full"
             />
           </motion.div>
-        )}
+        )} */}
       </header>
     </MotionConfig>
   );

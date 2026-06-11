@@ -25,6 +25,12 @@ body {
   font-family: var(--font-serif);
 }
 
+/* Tailwind v4 defaults buttons to cursor: default — restore the pointer. */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
 ::selection {
   background-color: var(--color-wine);
   color: var(--color-cream);

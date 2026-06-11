@@ -85,7 +85,7 @@ export function Schedule() {
                     }}
                   />
                   <motion.span
-                    className="absolute left-1/2 top-1/2 h-2 w-2 bg-wine transition-colors group-hover:bg-gold"
+                    className="absolute left-1/2 top-1/2 h-2 w-2 bg-wine"
                     style={{ x: "-50%", y: "-50%" }}
                     initial={{ scale: 0, opacity: 0, rotate: 45 }}
                     whileInView={{ scale: 1, opacity: 1, rotate: 45 }}

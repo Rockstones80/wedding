@@ -40,11 +40,11 @@ export function TornSeam({
       className="relative"
       style={{ backgroundColor: flip ? upper : lower }}
     >
-      <div className="h-12 sm:h-20 lg:h-28" />
+      <div className="h-12 sm:h-16" />
       <div
         className="absolute left-1/2 w-[min(40rem,94vw)]"
         style={{
-          ...(flip ? { bottom: "-67%" } : { top: "-67%" }),
+          ...(flip ? { bottom: "-80%" } : { top: "-80%" }),
           height: "167%",
           backgroundColor: flip ? lower : upper,
           ...MASK,
