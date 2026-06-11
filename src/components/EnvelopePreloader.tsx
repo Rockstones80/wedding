@@ -115,7 +115,7 @@ export default function EnvelopePreloader({
                 <feTurbulence
                   type="fractalNoise"
                   baseFrequency="0.9"
-                  numOctaves="2"
+                  numOctaves="1"
                   result="n"
                 />
                 <feColorMatrix
@@ -146,7 +146,7 @@ export default function EnvelopePreloader({
                 <feTurbulence
                   type="fractalNoise"
                   baseFrequency="0.9"
-                  numOctaves="2"
+                  numOctaves="1"
                   result="n"
                 />
                 <feColorMatrix
@@ -189,59 +189,63 @@ export default function EnvelopePreloader({
             {/* flaps */}
             <motion.g
               style={flapStyle}
-              filter="url(#fSide)"
               variants={flap.left}
               animate={opened ? "open" : undefined}
             >
-              <path d="M0,0 L293,418 Q327,450 293,482 L0,900 Z" fill="url(#gPaperSide)" />
-              <path
-                d="M0,0 L293,418 Q327,450 293,482 L0,900"
-                fill="none"
-                stroke="#d8c5b1"
-                strokeWidth="2"
-              />
+              <g filter="url(#fSide)">
+                <path d="M0,0 L293,418 Q327,450 293,482 L0,900 Z" fill="url(#gPaperSide)" />
+                <path
+                  d="M0,0 L293,418 Q327,450 293,482 L0,900"
+                  fill="none"
+                  stroke="#d8c5b1"
+                  strokeWidth="2"
+                />
+              </g>
             </motion.g>
             <motion.g
               style={flapStyle}
-              filter="url(#fSide)"
               variants={flap.right}
               animate={opened ? "open" : undefined}
             >
-              <path d="M650,0 L357,418 Q323,450 357,482 L650,900 Z" fill="url(#gPaperSide)" />
-              <path
-                d="M650,0 L357,418 Q323,450 357,482 L650,900"
-                fill="none"
-                stroke="#d8c5b1"
-                strokeWidth="2"
-              />
+              <g filter="url(#fSide)">
+                <path d="M650,0 L357,418 Q323,450 357,482 L650,900 Z" fill="url(#gPaperSide)" />
+                <path
+                  d="M650,0 L357,418 Q323,450 357,482 L650,900"
+                  fill="none"
+                  stroke="#d8c5b1"
+                  strokeWidth="2"
+                />
+              </g>
             </motion.g>
             <motion.g
               style={flapStyle}
-              filter="url(#fSide)"
               variants={flap.bottom}
               animate={opened ? "open" : undefined}
             >
-              <path d="M0,900 H650 L359,469 Q325,435 291,469 Z" fill="url(#gPaper)" />
-              <path
-                d="M0,900 L291,469 M359,469 L650,900"
-                fill="none"
-                stroke="#d8c5b1"
-                strokeWidth="2"
-              />
+              <g filter="url(#fSide)">
+                <path d="M0,900 H650 L359,469 Q325,435 291,469 Z" fill="url(#gPaper)" />
+                <path
+                  d="M0,900 L291,469 M359,469 L650,900"
+                  fill="none"
+                  stroke="#d8c5b1"
+                  strokeWidth="2"
+                />
+              </g>
             </motion.g>
             <motion.g
               style={flapStyle}
-              filter="url(#fTop)"
               variants={flap.top}
               animate={opened ? "open" : undefined}
             >
-              <path d="M0,0 H650 L359,431 Q325,465 291,431 Z" fill="url(#gPaper)" />
-              <path
-                d="M0,0 L291,431 M359,431 L650,0"
-                fill="none"
-                stroke="#cdb8a2"
-                strokeWidth="2"
-              />
+              <g filter="url(#fTop)">
+                <path d="M0,0 H650 L359,431 Q325,465 291,431 Z" fill="url(#gPaper)" />
+                <path
+                  d="M0,0 L291,431 M359,431 L650,0"
+                  fill="none"
+                  stroke="#cdb8a2"
+                  strokeWidth="2"
+                />
+              </g>
             </motion.g>
 
             {/* wax seal */}
@@ -258,7 +262,6 @@ export default function EnvelopePreloader({
             >
               <motion.g
                 style={flapStyle}
-                filter="url(#fSeal)"
                 animate={
                   opened
                     ? { scale: 0.25, opacity: 0 }
@@ -270,30 +273,32 @@ export default function EnvelopePreloader({
                     : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }
                 }
               >
-                <path
-                  d="M500,243 C541,240 568,254 578,283 C590,310 583,342 562,362 C543,382 521,392 497,389 C468,387 441,373 429,346 C417,318 423,286 444,265 C459,249 478,244 500,243 Z"
-                  fill="url(#gWax)"
-                />
-                <circle
-                  cx="500"
-                  cy="317"
-                  r="52"
-                  fill="none"
-                  stroke="#fad9c0"
-                  strokeWidth="2"
-                  opacity="0.55"
-                />
-                <text
-                  x="500"
-                  y="338"
-                  textAnchor="middle"
-                  fontSize="56"
-                  fill="#f6d9c4"
-                  fontFamily="var(--font-great-vibes), cursive"
-                  opacity="0.9"
-                >
-                  {site.couple.monogram}
-                </text>
+                <g filter="url(#fSeal)">
+                  <path
+                    d="M500,243 C541,240 568,254 578,283 C590,310 583,342 562,362 C543,382 521,392 497,389 C468,387 441,373 429,346 C417,318 423,286 444,265 C459,249 478,244 500,243 Z"
+                    fill="url(#gWax)"
+                  />
+                  <circle
+                    cx="500"
+                    cy="317"
+                    r="52"
+                    fill="none"
+                    stroke="#fad9c0"
+                    strokeWidth="2"
+                    opacity="0.55"
+                  />
+                  <text
+                    x="500"
+                    y="338"
+                    textAnchor="middle"
+                    fontSize="56"
+                    fill="#f6d9c4"
+                    fontFamily="var(--font-great-vibes), cursive"
+                    opacity="0.9"
+                  >
+                    {site.couple.monogram}
+                  </text>
+                </g>
               </motion.g>
             </g>
 

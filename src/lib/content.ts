@@ -17,8 +17,8 @@ export const site = {
   dateLong: "19th September 2026",
 
   // Set to e.g. "/hero.jpg" once the couple's photo is added to /public.
-  heroImage: '/hero2.jpg',
-  // Floral cluster draped over the hero's bottom edge.
+  heroImage: '/footer.jpg',
+  // Floral 2cluster draped over the hero's bottom edge.
   heroFloral: "/floral.webp" as string | null,
 
   letter: {
@@ -104,7 +104,7 @@ export const site = {
   },
 
   // Closing photo at the very bottom — drop it into /public as footer.jpg.
-  footerImage: "/footer.jpg" as string | null,
+  footerImage: "/hero.jpg" as string | null,
 
   // Background music — drop an mp3 into /public as music.mp3 (starts when a
   // guest taps "Open Invitation"; loops; toggle button bottom-right).
