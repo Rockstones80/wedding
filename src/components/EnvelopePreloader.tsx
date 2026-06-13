@@ -38,6 +38,7 @@ const flap = {
 const flapStyle = {
   transformBox: "fill-box",
   transformOrigin: "center",
+  willChange: "transform",
 } as const;
 
 export default function EnvelopePreloader({
@@ -148,7 +149,7 @@ export default function EnvelopePreloader({
               variants={flap.left}
               animate={opened ? "open" : undefined}
             >
-              <g filter="url(#fSide)">
+              <g>
                 <path d="M0,0 L293,418 Q327,450 293,482 L0,900 Z" fill="url(#gPaperSide)" />
                 <path
                   d="M0,0 L293,418 Q327,450 293,482 L0,900"
@@ -163,7 +164,7 @@ export default function EnvelopePreloader({
               variants={flap.right}
               animate={opened ? "open" : undefined}
             >
-              <g filter="url(#fSide)">
+              <g>
                 <path d="M650,0 L357,418 Q323,450 357,482 L650,900 Z" fill="url(#gPaperSide)" />
                 <path
                   d="M650,0 L357,418 Q323,450 357,482 L650,900"
@@ -178,7 +179,7 @@ export default function EnvelopePreloader({
               variants={flap.bottom}
               animate={opened ? "open" : undefined}
             >
-              <g filter="url(#fSide)">
+              <g>
                 <path d="M0,900 H650 L359,469 Q325,435 291,469 Z" fill="url(#gPaper)" />
                 <path
                   d="M0,900 L291,469 M359,469 L650,900"
@@ -193,7 +194,7 @@ export default function EnvelopePreloader({
               variants={flap.top}
               animate={opened ? "open" : undefined}
             >
-              <g filter="url(#fTop)">
+              <g>
                 <path d="M0,0 H650 L359,431 Q325,465 291,431 Z" fill="url(#gPaper)" />
                 <path
                   d="M0,0 L291,431 M359,431 L650,0"
@@ -229,7 +230,7 @@ export default function EnvelopePreloader({
                     : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }
                 }
               >
-                <g filter="url(#fSeal)">
+                <g>
                   <path
                     d="M500,243 C541,240 568,254 578,283 C590,310 583,342 562,362 C543,382 521,392 497,389 C468,387 441,373 429,346 C417,318 423,286 444,265 C459,249 478,244 500,243 Z"
                     fill="url(#gWax)"
