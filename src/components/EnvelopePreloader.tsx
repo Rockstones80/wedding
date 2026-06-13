@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { site } from "@/lib/content";
 
 const EASE: [number, number, number, number] = [0.7, 0, 0.25, 1];
 
@@ -105,43 +104,36 @@ export default function EnvelopePreloader({
                 <stop offset="0.55" stopColor="#7a0f2e" />
                 <stop offset="1" stopColor="#570a21" />
               </radialGradient>
-              <filter id="fTop" x="-20%" y="-20%" width="140%" height="160%">
-                <feDropShadow
-                  dx="0"
-                  dy="8"
-                  stdDeviation="6"
-                  floodColor="#2a000d"
-                  floodOpacity="0.35"
+              <pattern
+                id="paperTex"
+                patternUnits="userSpaceOnUse"
+                width="650"
+                height="900"
+              >
+                <image
+                  href="/paper-texture.webp"
+                  x="0"
+                  y="0"
+                  width="650"
+                  height="900"
+                  preserveAspectRatio="xMidYMid slice"
                 />
-              </filter>
-              <filter id="fSide" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow
-                  dx="0"
-                  dy="4"
-                  stdDeviation="4"
-                  floodColor="#2a000d"
-                  floodOpacity="0.22"
-                />
-              </filter>
-              <filter id="fSeal" x="-40%" y="-40%" width="180%" height="180%">
-                <feDropShadow
-                  dx="0"
-                  dy="6"
-                  stdDeviation="6"
-                  floodColor="#1c0008"
-                  floodOpacity="0.45"
-                />
-              </filter>
+              </pattern>
             </defs>
 
-            <motion.rect
-              width="650"
-              height="900"
-              rx="14"
-              fill="url(#gPocket)"
+            <motion.g
               animate={opened ? { opacity: 0 } : undefined}
               transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
-            />
+            >
+              <rect width="650" height="900" rx="14" fill="url(#paperTex)" />
+              <rect
+                width="650"
+                height="900"
+                rx="14"
+                fill="url(#gPocket)"
+                opacity="0.5"
+              />
+            </motion.g>
 
             {/* flaps */}
             <motion.g
@@ -150,7 +142,12 @@ export default function EnvelopePreloader({
               animate={opened ? "open" : undefined}
             >
               <g>
-                <path d="M0,0 L293,418 Q327,450 293,482 L0,900 Z" fill="url(#gPaperSide)" />
+                <path d="M0,0 L293,418 Q327,450 293,482 L0,900 Z" fill="url(#paperTex)" />
+                <path
+                  d="M0,0 L293,418 Q327,450 293,482 L0,900 Z"
+                  fill="url(#gPaperSide)"
+                  opacity="0.5"
+                />
                 <path
                   d="M0,0 L293,418 Q327,450 293,482 L0,900"
                   fill="none"
@@ -165,7 +162,12 @@ export default function EnvelopePreloader({
               animate={opened ? "open" : undefined}
             >
               <g>
-                <path d="M650,0 L357,418 Q323,450 357,482 L650,900 Z" fill="url(#gPaperSide)" />
+                <path d="M650,0 L357,418 Q323,450 357,482 L650,900 Z" fill="url(#paperTex)" />
+                <path
+                  d="M650,0 L357,418 Q323,450 357,482 L650,900 Z"
+                  fill="url(#gPaperSide)"
+                  opacity="0.5"
+                />
                 <path
                   d="M650,0 L357,418 Q323,450 357,482 L650,900"
                   fill="none"
@@ -180,7 +182,12 @@ export default function EnvelopePreloader({
               animate={opened ? "open" : undefined}
             >
               <g>
-                <path d="M0,900 H650 L359,469 Q325,435 291,469 Z" fill="url(#gPaper)" />
+                <path d="M0,900 H650 L359,469 Q325,435 291,469 Z" fill="url(#paperTex)" />
+                <path
+                  d="M0,900 H650 L359,469 Q325,435 291,469 Z"
+                  fill="url(#gPaper)"
+                  opacity="0.5"
+                />
                 <path
                   d="M0,900 L291,469 M359,469 L650,900"
                   fill="none"
@@ -195,7 +202,12 @@ export default function EnvelopePreloader({
               animate={opened ? "open" : undefined}
             >
               <g>
-                <path d="M0,0 H650 L359,431 Q325,465 291,431 Z" fill="url(#gPaper)" />
+                <path d="M0,0 H650 L359,431 Q325,465 291,431 Z" fill="url(#paperTex)" />
+                <path
+                  d="M0,0 H650 L359,431 Q325,465 291,431 Z"
+                  fill="url(#gPaper)"
+                  opacity="0.5"
+                />
                 <path
                   d="M0,0 L291,431 M359,431 L650,0"
                   fill="none"
@@ -207,7 +219,6 @@ export default function EnvelopePreloader({
 
             {/* wax seal */}
             <g
-              transform="translate(-175 133)"
               className="cursor-pointer"
               onClick={open}
               onKeyDown={(e) => {
@@ -219,43 +230,17 @@ export default function EnvelopePreloader({
             >
               <motion.g
                 style={flapStyle}
-                animate={
-                  opened
-                    ? { scale: 0.25, opacity: 0 }
-                    : { scale: [1, 1.045, 1] }
-                }
-                transition={
-                  opened
-                    ? { duration: 0.45, ease: "easeOut" }
-                    : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }
-                }
+                animate={opened ? { scale: 0, opacity: 0 } : undefined}
+                transition={{ duration: 0.45, ease: "easeOut" }}
               >
-                <g>
-                  <path
-                    d="M500,243 C541,240 568,254 578,283 C590,310 583,342 562,362 C543,382 521,392 497,389 C468,387 441,373 429,346 C417,318 423,286 444,265 C459,249 478,244 500,243 Z"
-                    fill="url(#gWax)"
-                  />
-                  <circle
-                    cx="500"
-                    cy="317"
-                    r="52"
-                    fill="none"
-                    stroke="#fad9c0"
-                    strokeWidth="2"
-                    opacity="0.55"
-                  />
-                  <text
-                    x="500"
-                    y="338"
-                    textAnchor="middle"
-                    fontSize="56"
-                    fill="#f6d9c4"
-                    fontFamily="var(--font-great-vibes), cursive"
-                    opacity="0.9"
-                  >
-                    {site.couple.monogram}
-                  </text>
-                </g>
+                <image
+                  href="/wax-seal.webp"
+                  x="237"
+                  y="362"
+                  width="176"
+                  height="176"
+                  preserveAspectRatio="xMidYMid meet"
+                />
               </motion.g>
             </g>
 
