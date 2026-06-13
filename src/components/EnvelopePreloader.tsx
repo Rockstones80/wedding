@@ -205,9 +205,8 @@ export default function EnvelopePreloader({
                 <path
                   d="M0,700 L291,350 M359,350 L650,700"
                   fill="none"
-                 stroke="#e5e7eb"
-                  strokeOpacity="0.9"
-                  strokeWidth="3"
+                  stroke="#d8c5b1"
+                  strokeWidth="2"
                 />
               </g>
             </motion.g>
@@ -229,9 +228,8 @@ export default function EnvelopePreloader({
                 <path
                   d="M0,200 L291,550 M359,550 L650,200"
                   fill="none"
-                  stroke="#e5e7eb"
-                  strokeOpacity="0.9"
-                  strokeWidth="3"
+                  stroke="#cdb8a2"
+                  strokeWidth="2"
                 />
               </g>
             </motion.g>
