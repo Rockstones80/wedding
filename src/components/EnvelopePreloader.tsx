@@ -125,7 +125,12 @@ export default function EnvelopePreloader({
               animate={opened ? { opacity: 0 } : undefined}
               transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
             >
-              <rect width="650" height="900" rx="14" fill="url(#paperTex)" />
+              <rect
+                width="650"
+                height="900"
+                rx="14"
+                fill={opened ? "url(#gPocket)" : "url(#paperTex)"}
+              />
               <rect
                 width="650"
                 height="900"
@@ -142,7 +147,10 @@ export default function EnvelopePreloader({
               animate={opened ? "open" : undefined}
             >
               <g>
-                <path d="M0,0 L293,418 Q327,450 293,482 L0,900 Z" fill="url(#paperTex)" />
+                <path
+                  d="M0,0 L293,418 Q327,450 293,482 L0,900 Z"
+                  fill={opened ? "url(#gPaperSide)" : "url(#paperTex)"}
+                />
                 <path
                   d="M0,0 L293,418 Q327,450 293,482 L0,900 Z"
                   fill="url(#gPaperSide)"
@@ -162,7 +170,10 @@ export default function EnvelopePreloader({
               animate={opened ? "open" : undefined}
             >
               <g>
-                <path d="M650,0 L357,418 Q323,450 357,482 L650,900 Z" fill="url(#paperTex)" />
+                <path
+                  d="M650,0 L357,418 Q323,450 357,482 L650,900 Z"
+                  fill={opened ? "url(#gPaperSide)" : "url(#paperTex)"}
+                />
                 <path
                   d="M650,0 L357,418 Q323,450 357,482 L650,900 Z"
                   fill="url(#gPaperSide)"
@@ -182,7 +193,10 @@ export default function EnvelopePreloader({
               animate={opened ? "open" : undefined}
             >
               <g>
-                <path d="M0,900 H650 L359,469 Q325,435 291,469 Z" fill="url(#paperTex)" />
+                <path
+                  d="M0,900 H650 L359,469 Q325,435 291,469 Z"
+                  fill={opened ? "url(#gPaper)" : "url(#paperTex)"}
+                />
                 <path
                   d="M0,900 H650 L359,469 Q325,435 291,469 Z"
                   fill="url(#gPaper)"
@@ -202,7 +216,10 @@ export default function EnvelopePreloader({
               animate={opened ? "open" : undefined}
             >
               <g>
-                <path d="M0,0 H650 L359,431 Q325,465 291,431 Z" fill="url(#paperTex)" />
+                <path
+                  d="M0,0 H650 L359,431 Q325,465 291,431 Z"
+                  fill={opened ? "url(#gPaper)" : "url(#paperTex)"}
+                />
                 <path
                   d="M0,0 H650 L359,431 Q325,465 291,431 Z"
                   fill="url(#gPaper)"
