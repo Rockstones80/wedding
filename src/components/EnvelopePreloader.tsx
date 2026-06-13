@@ -28,7 +28,7 @@ const flap = {
   bottom: {
     open: {
       y: "130%",
-      rotate: 3,
+      rotate: 5,
       transition: { duration: 1.25, ease: EASE, delay: 0.6 },
     },
   },
@@ -74,9 +74,9 @@ export default function EnvelopePreloader({
           className={`fixed inset-0 z-50 flex items-center justify-center ${
             opened ? "pointer-events-none" : ""
           }`}
-          initial={{ backgroundColor: "#5e1325" }}
+          initial={{ backgroundColor: "#ffff" }}
           animate={{
-            backgroundColor: opened ? "rgba(94, 19, 37, 0)" : "#5e1325",
+            backgroundColor: opened ? "rgba(94, 19, 37, 0)" : "#ffff",
           }}
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           exit={{ opacity: 0, transition: { duration: 0.7 } }}
@@ -194,16 +194,16 @@ export default function EnvelopePreloader({
             >
               <g>
                 <path
-                  d="M0,900 H650 L359,469 Q325,435 291,469 Z"
+                  d="M0,700 L291,350 Q325,316 359,350 L650,700 L650,900 L0,900 Z"
                   fill={opened ? "url(#gPaper)" : "url(#paperTex)"}
                 />
                 <path
-                  d="M0,900 H650 L359,469 Q325,435 291,469 Z"
+                  d="M0,700 L291,350 Q325,316 359,350 L650,700 L650,900 L0,900 Z"
                   fill="url(#gPaper)"
                   opacity="0.5"
                 />
                 <path
-                  d="M0,900 L291,469 M359,469 L650,900"
+                  d="M0,700 L291,350 M359,350 L650,700"
                   fill="none"
                   stroke="#d8c5b1"
                   strokeWidth="2"
@@ -217,16 +217,16 @@ export default function EnvelopePreloader({
             >
               <g>
                 <path
-                  d="M0,0 H650 L359,431 Q325,465 291,431 Z"
+                  d="M0,200 L291,550 Q325,584 359,550 L650,200 L650,0 L0,0 Z"
                   fill={opened ? "url(#gPaper)" : "url(#paperTex)"}
                 />
                 <path
-                  d="M0,0 H650 L359,431 Q325,465 291,431 Z"
+                  d="M0,200 L291,550 Q325,584 359,550 L650,200 L650,0 L0,0 Z"
                   fill="url(#gPaper)"
                   opacity="0.5"
                 />
                 <path
-                  d="M0,0 L291,431 M359,431 L650,0"
+                  d="M0,200 L291,550 M359,550 L650,200"
                   fill="none"
                   stroke="#cdb8a2"
                   strokeWidth="2"
@@ -252,10 +252,10 @@ export default function EnvelopePreloader({
               >
                 <image
                   href="/wax-seal.webp"
-                  x="237"
-                  y="362"
-                  width="176"
-                  height="176"
+                  x="200"
+                  y="325"
+                  width="250"
+                  height="250"
                   preserveAspectRatio="xMidYMid meet"
                 />
               </motion.g>
