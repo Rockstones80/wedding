@@ -1,35 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Modal } from "./Modal";
-
-const STORAGE_KEY = "wedding-unlocked-v1";
-
-// The code guests get on their invitation card. Set VITE_INVITE_CODE in
-// .env.local to override; note that as a static site the check runs in the
-// browser — it is a curtain for casual visitors, not a vault.
-const EXPECTED = (
-  (import.meta.env.VITE_INVITE_CODE as string | undefined) ?? "forever"
-)
-  .trim()
-  .toLowerCase();
+import { unlock, useUnlocked, verifyCode } from "@/lib/unlock";
 
 export function LockGate({ children }: { children: React.ReactNode }) {
-  const [unlocked, setUnlocked] = useState(false);
+  const unlocked = useUnlocked();
   const [asking, setAsking] = useState(false);
   const [code, setCode] = useState("");
   const [state, setState] = useState<"idle" | "checking" | "wrong">("idle");
-
-  useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY) === "1") setUnlocked(true);
-  }, []);
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
     if (code.trim() === "") return;
     setState("checking");
     window.setTimeout(() => {
-      if (code.trim().toLowerCase() === EXPECTED) {
-        localStorage.setItem(STORAGE_KEY, "1");
-        setUnlocked(true);
+      if (verifyCode(code)) {
+        unlock();
         setAsking(false);
       } else {
         setState("wrong");

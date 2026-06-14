@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Modal } from "./Modal";
-import { Rsvp } from "./Rsvp";
-import { site } from "@/lib/content";
+import { RsvpModalBody } from "./RsvpModalBody";
 
 export function RsvpCta() {
   const [open, setOpen] = useState(false);
@@ -15,15 +14,7 @@ export function RsvpCta() {
         RSVP
       </button>
       <Modal open={open} onClose={() => setOpen(false)} label="RSVP">
-        <div className="px-1 py-3">
-          <p className="text-center font-script text-4xl text-wine">RSVP</p>
-          <p className="mt-2 text-center font-serif text-sm text-ink/70">
-            Kindly respond before {site.rsvp.deadlineDisplay}
-          </p>
-          <div className="mt-5">
-            <Rsvp />
-          </div>
-        </div>
+        <RsvpModalBody />
       </Modal>
     </>
   );

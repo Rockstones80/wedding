@@ -60,7 +60,7 @@ export function Welcome() {
           type="button"
           onClick={toggleMusic}
           aria-label={playing ? "Pause music" : "Play music"}
-          className="fixed bottom-5 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-gold/50 bg-wine/90 text-ivory shadow-lg transition hover:bg-wine"
+          className="fixed bottom-24 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-gold/50 bg-wine/90 text-ivory shadow-lg transition hover:bg-wine"
         >
           {playing ? (
             <span className="flex h-4 items-end gap-[3px]" aria-hidden="true">

@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { LockGate } from "@/components/LockGate";
 import { Reveal } from "@/components/Reveal";
 import { RsvpCta } from "@/components/RsvpCta";
+import { StickyRsvp } from "@/components/StickyRsvp";
 import { Welcome } from "@/components/Welcome";
 import { TornSeam } from "@/components/TornSeam";
 import { site } from "@/lib/content";
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <main>
       <Welcome />
+      <StickyRsvp />
       <Hero />
 
       <section className="bg-wine px-6 pb-14 pt-20 text-center">
@@ -202,6 +204,14 @@ export default function App() {
               {p}
             </p>
           ))}
+
+          {site.story.mapImage && (
+            <img
+              src={site.story.mapImage}
+              alt="Nigeria and Zimbabwe joined — Raphael and Shaleen"
+              className="mx-auto mt-8 w-full max-w-sm"
+            />
+          )}
         </Reveal>
       </section>
 
