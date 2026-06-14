@@ -218,17 +218,17 @@ export default function App() {
       <TornSeam upper={PALETTE.white} lower={PALETTE.wine} flip />
       <footer className="bg-wine pt-24 text-center">
         <div className="mx-auto max-w-md px-6">
-          <h2 className="font-script text-3xl text-white sm:text-4xl">
+          <h2 className="font-script text-white text-4xl">
             {site.rsvp.ctaHeading}
           </h2>
-          <p className="mx-auto mt-4 max-w-xs font-serif text-base leading-relaxed text-white">
+          <p className="mx-auto mt-4 max-w-xl font-serif text-xl leading-relaxed text-white">
             {site.rsvp.ctaText}
           </p>
           <RsvpCta />
           <p className="mt-14 font-script text-3xl text-white sm:text-4xl">
             {site.rsvp.farewell}
           </p>
-          <p className="mt-3 font-serif text-xl text-white">
+          <p className="mt-3 font-serif text-3xl text-white">
             {site.couple.nameA} and {site.couple.nameB}
           </p>
         </div>
