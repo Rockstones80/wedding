@@ -14,6 +14,7 @@ export function Rsvp() {
     "idle",
   );
   const [attending, setAttending] = useState<"yes" | "no" | null>(null);
+  const [guests, setGuests] = useState("1");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,7 +30,8 @@ export function Rsvp() {
     const entry = {
       name: String(fd.get("name") ?? "").trim(),
       attending,
-      guests: String(fd.get("guests") ?? ""),
+      guests: attending === "yes" ? guests : "",
+      guestName: String(fd.get("guestName") ?? "").trim(),
       dietary: String(fd.get("dietary") ?? "").trim(),
       message: String(fd.get("message") ?? "").trim(),
       at: new Date().toISOString(),
@@ -38,12 +40,16 @@ export function Rsvp() {
     setStatus("sending");
     try {
       if (ENDPOINT) {
-        const res = await fetch(ENDPOINT, {
+        // Google Apps Script web app: post as a "simple request" (text/plain,
+        // no-cors) so the browser sends it without a blocked CORS preflight.
+        // The response is opaque, so a resolved fetch is treated as success.
+        await fetch(ENDPOINT, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(entry),
         });
-        setStatus(res.ok ? "done" : "error");
+        setStatus("done");
       } else {
         console.log("[rsvp]", entry);
         await new Promise((r) => window.setTimeout(r, 600));
@@ -114,15 +120,46 @@ export function Rsvp() {
 
       {attending === "yes" && (
         <>
-          <label className="mt-5 block">
-            <span className="mb-1.5 block font-serif text-sm tracking-wide text-ink/70">
+          <fieldset className="mt-5">
+            <legend className="mb-2 block font-serif text-sm tracking-wide text-ink/70">
               Number of guests
-            </span>
-            <select name="guests" defaultValue="1" className={inputClass}>
-              <option value="1">Just me</option>
-              <option value="2">Me plus one</option>
-            </select>
-          </label>
+            </legend>
+            <div className="flex gap-2.5">
+              {(
+                [
+                  ["1", "Just me"],
+                  ["2", "Me plus one"],
+                ] as const
+              ).map(([value, label]) => (
+                <button
+                  key={value}
+                  type="button"
+                  aria-pressed={guests === value}
+                  onClick={() => setGuests(value)}
+                  className={`flex-1 rounded-full border px-3 py-2.5 font-serif text-sm transition ${
+                    guests === value
+                      ? "border-wine bg-wine text-cream"
+                      : "border-champagne-deep text-ink hover:border-wine/50"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+          {guests === "2" && (
+            <label className="mt-5 block">
+              <span className="mb-1.5 block font-serif text-sm tracking-wide text-ink/70">
+                Your guest&apos;s name
+              </span>
+              <input
+                name="guestName"
+                required
+                placeholder="Plus-one's full name"
+                className={inputClass}
+              />
+            </label>
+          )}
           <label className="mt-5 block">
             <span className="mb-1.5 block font-serif text-sm tracking-wide text-ink/70">
               Dietary notes
