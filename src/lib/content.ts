@@ -93,9 +93,16 @@ export const site = {
   },
 
   story: {
+    // Two photos woven through the paragraphs.
+    photo1: "/story-1.jpg" as string | null,
+    photo2: "/story-2.jpg" as string | null,
     paragraphs: [
-      "Our story began with a simple online introduction, but from the very first conversation, we knew there was something special between us. What started as messages and laughter quickly grew into a beautiful friendship, and before long, we became inseparable. Since then, our days have been filled with love, happiness, and countless laughs.",
-      "Together, we have created a life full of wonderful memories, and we cannot wait to begin our next chapter as husband and wife..",
+      "Our story began in 2022 with a simple introduction, but from our very first conversation, we knew there was something special between us. What started as messages and laughter quickly blossomed into a beautiful friendship, and before long, we became inseparable.",
+      "Looking back, we believe God brought us together in His perfect timing. Since then, our days have been filled with love, joy, and countless memories. Through every season, we have grown together, supported one another, and built a relationship rooted in faith, friendship, and love.",
+      "We have shared life together — from church services and concerts to football matches, holidays, graduations, and countless celebrations. We’ve celebrated life’s highs, supported each other through its challenges, and grown stronger together every step of the way.",
+      "In March 2025, we got engaged after a very special moment that marked the beginning of our forever. It was a day filled with love, joy, and gratitude — one we will always cherish as we took this beautiful step together.",
+      "Today, we are incredibly grateful for the journey that brought us together and for the family and friends who have supported us along the way. What began with a simple introduction has become a beautiful love story, and we are so excited to celebrate the next chapter with all of you.",
+      "Thank you for being part of our story.",
     ],
   },
 

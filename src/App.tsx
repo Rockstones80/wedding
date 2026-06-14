@@ -159,7 +159,42 @@ export default function App() {
             Our Story
           </h2>
           <Flourish className="mt-2 text-gold" />
-          {site.story.paragraphs.map((p) => (
+
+          {site.story.paragraphs.slice(0, 2).map((p) => (
+            <p
+              key={p.slice(0, 24)}
+              className="mx-auto mt-6 max-w-sm font-serif text-lg leading-relaxed text-ink/80"
+            >
+              {p}
+            </p>
+          ))}
+
+          {site.story.photo1 && (
+            <img
+              src={site.story.photo1}
+              alt={`${site.couple.nameA} and ${site.couple.nameB}`}
+              className="mx-auto mt-8 block w-full max-w-sm rounded-2xl ring-1 ring-champagne-deep"
+            />
+          )}
+
+          {site.story.paragraphs.slice(2, 4).map((p) => (
+            <p
+              key={p.slice(0, 24)}
+              className="mx-auto mt-6 max-w-sm font-serif text-lg leading-relaxed text-ink/80"
+            >
+              {p}
+            </p>
+          ))}
+
+          {site.story.photo2 && (
+            <img
+              src={site.story.photo2}
+              alt={`${site.couple.nameA} and ${site.couple.nameB}`}
+              className="mx-auto mt-8 block w-full max-w-sm rounded-2xl ring-1 ring-champagne-deep"
+            />
+          )}
+
+          {site.story.paragraphs.slice(4).map((p) => (
             <p
               key={p.slice(0, 24)}
               className="mx-auto mt-6 max-w-sm font-serif text-lg leading-relaxed text-ink/80"
