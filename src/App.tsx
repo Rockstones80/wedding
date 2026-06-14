@@ -171,8 +171,8 @@ export default function App() {
       </section>
 
       <TornSeam upper={PALETTE.white} lower={PALETTE.wine} flip />
-      <footer className="bg-wine px-6 pt-24 text-center">
-        <div className="mx-auto max-w-md">
+      <footer className="bg-wine pt-24 text-center">
+        <div className="mx-auto max-w-md px-6">
           <h2 className="font-script text-3xl text-white sm:text-4xl">
             {site.rsvp.ctaHeading}
           </h2>
@@ -186,21 +186,25 @@ export default function App() {
           <p className="mt-3 font-serif text-xl text-white">
             {site.couple.nameA} and {site.couple.nameB}
           </p>
-          <div className="relative mx-auto mt-8 aspect-[3/4] w-full max-w-[21rem]">
-            {site.footerImage ? (
-              <img
-                src={site.footerImage}
-                alt={`${site.couple.nameA} and ${site.couple.nameB}`}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            ) : (
-              <div
-                className="absolute inset-0 bg-wine-deep"
-                aria-hidden="true"
-              />
-            )}
-          </div>
         </div>
+        {site.footerImage ? (
+          <div className="relative mx-auto mt-10 w-full max-w-md">
+            <img
+              src={site.footerImage}
+              alt={`${site.couple.nameA} and ${site.couple.nameB}`}
+              className="block aspect-[4/5] w-full object-cover"
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-wine to-wine/0"
+              aria-hidden="true"
+            />
+          </div>
+        ) : (
+          <div
+            className="mx-auto mt-10 aspect-[4/5] w-full max-w-md bg-wine-deep"
+            aria-hidden="true"
+          />
+        )}
       </footer>
     </main>
   );
