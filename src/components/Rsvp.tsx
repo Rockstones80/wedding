@@ -9,9 +9,21 @@ const inputClass =
 // so the flow can be tested.
 const ENDPOINT = import.meta.env.VITE_RSVP_ENDPOINT as string | undefined;
 
+// Remembers (per browser) that this guest already responded, so the form is
+// replaced by a thank-you on revisit instead of letting them submit twice.
+const RSVP_KEY = "wedding-rsvp-done-v1";
+
+function alreadyResponded(): boolean {
+  try {
+    return localStorage.getItem(RSVP_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export function Rsvp() {
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
-    "idle",
+    () => (alreadyResponded() ? "done" : "idle"),
   );
   const [attending, setAttending] = useState<"yes" | "no" | null>(null);
   const [guests, setGuests] = useState("1");
@@ -49,12 +61,16 @@ export function Rsvp() {
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(entry),
         });
-        setStatus("done");
       } else {
         console.log("[rsvp]", entry);
         await new Promise((r) => window.setTimeout(r, 600));
-        setStatus("done");
       }
+      try {
+        localStorage.setItem(RSVP_KEY, "1");
+      } catch {
+        // ignore storage failures (private mode, etc.)
+      }
+      setStatus("done");
     } catch {
       setStatus("error");
     }

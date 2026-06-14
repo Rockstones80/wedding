@@ -9,8 +9,10 @@ appends a row to your Google Sheet. One-time setup, ~5 minutes.
 
 ## 2. Add the script
 
-1. In the sheet: **Extensions → Apps Script**.
-2. Delete any sample code, paste this, then **Save** (disk icon):
+1. From inside the sheet: **Extensions → Apps Script** (this links the script
+   to the sheet, so no ID is needed).
+2. Select all the sample code in `Code.gs`, replace it with this, then
+   **Save** (disk icon):
 
 ```javascript
 function doPost(e) {
