@@ -8,6 +8,7 @@ import { RsvpCta } from "@/components/RsvpCta";
 import { StickyRsvp } from "@/components/StickyRsvp";
 import { Welcome } from "@/components/Welcome";
 import { TornSeam } from "@/components/TornSeam";
+import { Analytics } from "@vercel/analytics/react";
 import { site } from "@/lib/content";
 import { PALETTE } from "@/lib/palette";
 
@@ -251,6 +252,7 @@ export default function App() {
           />
         )}
       </footer>
+      <Analytics />
     </main>
   );
 }
