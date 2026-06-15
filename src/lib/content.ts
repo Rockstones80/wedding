@@ -88,7 +88,7 @@ export const site = {
     heading: "Kindly Note",
     paragraphs: [
       "We are delighted to celebrate our special day with our closest family and friends. Please note that this is an invitation-only event.",
-      "While we have chosen to make our celebration adults-only, children of immediate family members will be in attendance.",
+      "While we've chosen to make our celebration adults-only, we kindly ask that no children attend, but we sincerely hope you can still join us.",
     ],
   },
 
